@@ -16,7 +16,7 @@ export default function Submit() {
 
     try {
       setLoading(true)
-      const res = await fetch('http://localhost:5000/submit', {
+      const res = await fetch('https://8fdf-49-207-62-247.ngrok-free.app/submit', {
         method: 'POST',
         body: formData
       })

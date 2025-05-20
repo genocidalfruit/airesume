@@ -14,7 +14,7 @@ export default function Search() {
     }
 
     setLoading(true)
-    const res = await fetch('http://localhost:5000/search', {
+    const res = await fetch('https://8fdf-49-207-62-247.ngrok-free.app/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ query })
@@ -117,7 +117,7 @@ export default function Search() {
                       {r.pdf_file_id && (
                         <div className="mt-4">
                           <a
-                            href={`http://localhost:5000/resume/${r.pdf_file_id}`}
+                            href={`https://8fdf-49-207-62-247.ngrok-free.app/resume/${r.pdf_file_id}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-block bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full border border-[#e5e9f0]"
