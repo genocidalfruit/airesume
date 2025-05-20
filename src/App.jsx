@@ -8,6 +8,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Submit />} />
         <Route path="/submit" element={<Submit />} />
         <Route path="/search" element={<Search />} />
       </Routes>
