@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 export default function Search() {
   const [query, setQuery] = useState("")
   const [results, setResults] = useState([])
   const [loading, setLoading] = useState(false)
   const [firstSearchDone, setFirstSearchDone] = useState(false)
+  const navigate = useNavigate()
 
   const handleSearch = async () => {
     if (!query.trim()) {
@@ -65,6 +67,15 @@ export default function Search() {
             ) : (
               'Search'
             )}
+          </button>
+
+          {/* Navigation Button to Submit Page */}
+          <button
+            type="button"
+            onClick={() => navigate('/submit')}
+            className="mt-3 w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition-colors"
+          >
+            Go to Submit
           </button>
         </motion.div>
 

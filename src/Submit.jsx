@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify'
 import { motion } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css'
 
 export default function Submit() {
   const [file, setFile] = useState(null)
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const handleUpload = async (e) => {
     e.preventDefault()
@@ -79,6 +81,14 @@ export default function Submit() {
           ) : (
             'Upload'
           )}
+        </button>
+
+        <button
+          type="button"
+          onClick={() => navigate('/search')}
+          className="mt-2 w-full bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded transition-colors"
+        >
+          Go to Search
         </button>
       </form>
 
