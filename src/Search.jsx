@@ -88,7 +88,9 @@ export default function Search() {
             className="mt-10 bg-gray-800 border border-[#e5e9f0] rounded-2xl p-6 shadow-lg shadow-slate-500/60"
           >
             <p className="text-sm text-[#e5e9f0] uppercase tracking-wider font-semibold mb-4">
-              First 5 results
+              {results.every(r => !r.common_keywords || r.common_keywords.length === 0)
+                ? 'No matching keywords'
+                : 'First 5 results'}
             </p>
 
             {/* Animate cards on each new set of results */}
