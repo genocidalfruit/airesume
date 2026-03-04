@@ -1,12 +1,60 @@
-# React + Vite
+# AI Resume Search Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React + Vite frontend for uploading resumes and searching ranked resume matches from a backend API.
 
-Currently, two official plugins are available:
+## What this site does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This site provides two core workflows:
 
-## Expanding the ESLint configuration
+1. **Submit resumes** (`/submit`)
+   - Upload a PDF resume.
+   - Sends the file to the backend `/submit` endpoint.
+   - Shows success/error toast notifications.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. **Search resumes** (`/search`)
+   - Enter a natural-language query (for example, `3 years experience in React`).
+   - Sends the query to the backend `/search` endpoint.
+   - Displays ranked resume results with:
+     - Candidate name
+     - Final score (when keyword matches are present)
+     - Common keywords
+     - Resume download link
+
+The root route (`/`) currently opens the **Submit Resume** page.
+
+## Tech stack
+
+- **React 19**
+- **Vite 6**
+- **React Router**
+- **Framer Motion** (animations)
+- **React Toastify** (notifications)
+- **Tailwind CSS 4**
+
+## Local development
+
+### Prerequisites
+
+- Node.js 18+
+- npm
+
+### Install and run
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the local URL shown by Vite (usually `http://localhost:5173`).
+
+## Available scripts
+
+- `npm run dev` — start the Vite dev server
+- `npm run build` — build for production
+- `npm run preview` — preview the production build locally
+- `npm run lint` — run ESLint
+
+## Backend dependency
+
+This frontend calls remote API endpoints configured directly in the source code (`Submit.jsx` and `Search.jsx`).
+If those endpoints are unavailable, submit/search/download features will fail.
